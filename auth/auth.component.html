@@ -1,0 +1,107 @@
+<div class="container" id="mainContainer">
+    <div>
+        <button (click)="handlerShowModal(false)">sign in</button>
+        <button (click)="handlerShowModal(true)">log in</button>
+    </div>
+    <!-- Login Section -->
+    <div id="loginSection" *ngIf="switchShowForms">
+        <h1>Gestión de Citas Médicas</h1>
+        <img src="../assets/img/Logo.png" alt="Logo del Hospital" class="logo" />
+        <h2>Iniciar Sesión</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+
+        <label for="email">Email:</label>
+        <input type="text" formControlName="email" required />
+
+        <label for="pass">Contraseña:</label>
+        <input type="password" formControlName="pass" required />
+
+        <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <!-- Registration Section -->
+    <div id="registerSection" *ngIf="!switchShowForms">
+        <h2>Registro de Usuario</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+            <label for="first_name">Nombre:</label>
+            <input type="text" formControlName="first_name" required />
+
+            <label for="last_name">Apellido:</label>
+            <input type="text" formControlName="last_name" required />
+
+            <label for="document_number">Numero de documento:</label>
+            <input type="number" formControlName="document_number" required />
+
+            <label for="rol">Rol:</label>
+            <select formControlName="rol" (change)="onRoleChange()" required>
+                <option value="admin">Administrador</option>
+                <option value="doctor">Doctor</option>
+                <option value="pacient">Paciente</option>
+            </select>
+
+            <label for="register_email">Email:</label>
+            <input type="text" formControlName="register_email" required />
+
+            <label for="register_pass">Contraseña:</label>
+            <input type="password" formControlName="register_pass" required />
+    
+            <!-- Campos adicionales para el paciente -->
+            <div *ngIf="isPatient">
+                <label for="age">Edad:</label>
+                <input type="number" formControlName="age" required />
+        
+                <label for="mobile">Celular:</label>
+                <input type="text" formControlName="mobile" required />
+        
+                <label for="relationship">Estado Civil:</label>
+                <input type="text" formControlName="relationship" required />
+        
+                <label for="place_of_birh">Lugar de Nacimiento:</label>
+                <input type="text" formControlName="place_of_birh" required />
+        
+                <label for="address">Domicilio:</label>
+                <input type="text" formControlName="address" required />
+        
+                <label for="religion">Religión:</label>
+                <input type="text" formControlName="religion" required />
+        
+                <label for="rh">RH:</label>
+                <input type="text" formControlName="rh" required />
+        
+                <label for="basic_disaeses">Enfermedades de Base:</label>
+                <textarea formControlName="basic_disaeses"></textarea>
+        
+                <label for="drug_allergy">Alergia a Medicamentos:</label>
+                <textarea formControlName="drug_allergy"></textarea>
+        
+                <label for="medical_treatments">Tratamientos Médicos:</label>
+                <textarea formControlName="medical_treatments"></textarea>
+        
+                <label for="emergency_contacts">Contacto de Emergencia:</label>
+                <input type="text" formControlName="emergency_contacts" required />
+        
+                <label for="place_of_residence">Lugar de Residencia:</label>
+                <input type="text" formControlName="place_of_residence" required />
+        
+                <label for="organ_donation">¿Apto para Donar Órganos?:</label>
+                <input type="checkbox" formControlName="organ_donation" />
+        
+                <label for="name_father">Nombre del Padre:</label>
+                <input type="text" formControlName="name_father" required />
+        
+                <label for="name_mother">Nombre de la Madre:</label>
+                <input type="text" formControlName="name_mother" required />
+        
+                <label for="parental_occupation">Ocupación de los Padres:</label>
+                <input type="text" formControlName="parental_occupation" required />
+        
+                <label for="family_history">Antecedentes Familiares:</label>
+                <textarea formControlName="family_history"></textarea>
+            </div>
+        
+        <button type="submit">Registrar</button>
+        </form>
+    </div>
+</div>

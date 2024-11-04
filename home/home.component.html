@@ -1,0 +1,48 @@
+<div class="home-wrapper">
+    <p-card header="Pacientes del día" class="home-wrapper--list-current">
+        <div class="card">
+            <p-table [value]="products">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </p-card>
+    <p-card header="Total de pacientes atendidos en día" class="home-wrapper--list-pie">
+        <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+    </p-card>
+    <p-card header="Pacientes del mes" class="home-wrapper--list-month">
+        <div class="card">
+            <p-table [value]="products">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </p-card>
+    <p-card header="Total de pacientes atendidos en el mes" class="home-wrapper--list-pie">
+        <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+    </p-card>
+</div>

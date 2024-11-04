@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: lightblue;
+    box-shadow: 2px 1px 7px 0px;
+}
+
+.dashboard-wrapper {
+    height: 100vh;
+    display: flex;
+
+    &--menu {
+        width: 20vw;
+        height: 100vh;
+    }
+
+    &--views {
+        width: 80vw;
+        height: 100vh;
+        padding: 30px;
+    }
+}
